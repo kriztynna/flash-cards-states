@@ -26,7 +26,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     	.state('manageCard.edit', {
             url: '/edit',
-            templateUrl: '../js/directives/editCard/editCard.html',
+            templateUrl: '../js/directives/editCard/editCard.html'
         });
 
     $stateProvider

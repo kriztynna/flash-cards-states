@@ -1,4 +1,4 @@
-app.controller("NewCardController", function($scope, FlashCardsFactory, $rootScope, $http, $stateParams) {
+app.controller("NewCardController", function($scope, FlashCardsFactory, $rootScope, $http, $stateParams, $state) {
     $scope.categories = FlashCardsFactory.categories;
     $scope.newCard = {
         question: null,
@@ -37,7 +37,7 @@ app.controller("NewCardController", function($scope, FlashCardsFactory, $rootSco
         $http.put('/cards/' + $stateParams.id, $scope.newCard)
             .then(function(updatedCard) {
                 console.log(updatedCard);
-                FlashCardsFactory.getFlashCards();
+                $state.go('viewcards');
             });
     };
 });
