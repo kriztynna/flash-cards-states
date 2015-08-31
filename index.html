@@ -6,16 +6,19 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <script src="js/lib/angular.js"></script>
+        <script src="angular-ui-router/release/angular-ui-router.js"></script>
     </head>
     <body ng-app="flashCards" ng-cloak>
-        <div ng-include="'templates/statistics.html'"></div>
-        <new-card-form></new-card-form>
+        <ui-view></ui-view>
+        <!-- <div ng-include="'templates/statistics.html'"></div> -->
+        <!-- <button ng-click="$state.go('statistics')">show stats panel</button> -->
+        <!-- <new-card-form></new-card-form> -->
         <div ng-controller="MainController">
             <button class="category-button" ng-repeat="category in categories"  ng-class="{active:category===currentCategory}" ng-click="getCategoryCards(category)">{{category}}</button>
             <button class="category-button" ng-click="getCategoryCards()">Reset</button>
             <loader ng-show="!ready"></loader>
-            <flash-card-directive card = 'flashCard' ng-repeat="flashCard in flashCards | orderBy : 'question'" border-on-hover>
-            </flash-card-directive>
+            <!-- <flash-card-directive card = 'flashCard' ng-repeat="flashCard in flashCards | orderBy : 'question'" border-on-hover>
+            </flash-card-directive> -->
         </div>
     	<script src="js/app.js"></script>
     	<script src="js/controllers/MainController.js"></script>
