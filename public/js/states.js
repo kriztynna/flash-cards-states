@@ -1,0 +1,15 @@
+app.config(function($stateProvider,$urlRouterProvider){
+	$stateProvider
+		.state('statistics',{
+				url:'/statistics',
+				templateUrl:'../templates/statistics.html'
+			})
+		.state('newcard',{
+				url:'/newcard',
+				templateUrl:'../js/directives/newCard/NewCardForm.html'
+			})
+		.state('viewcards',{
+				url:'/viewcards',
+				templateUrl:'../templates/main.html'
+			});
+});

@@ -11,20 +11,14 @@
     <body ng-app="flashCards" ng-cloak>
         <div id="menu">
             <a ui-sref="statistics">Statistics</a>
-            <a ui-sref="newcardform">New Card</a>
+            <a ui-sref="newcard">New Card</a>
             <a ui-sref="viewcards">View Cards</a>
         </div>
         <ui-view></ui-view>
         <!-- <div ng-include="'templates/statistics.html'"></div> -->
         <!-- <button ng-click="$state.go('statistics')">show stats panel</button> -->
         <!-- <new-card-form></new-card-form> -->
-        <div ng-controller="MainController">
-            <button class="category-button" ng-repeat="category in categories"  ng-class="{active:category===currentCategory}" ng-click="getCategoryCards(category)">{{category}}</button>
-            <button class="category-button" ng-click="getCategoryCards()">Reset</button>
-            <loader ng-show="!ready"></loader>
-            <!-- <flash-card-directive card = 'flashCard' ng-repeat="flashCard in flashCards | orderBy : 'question'" border-on-hover>
-            </flash-card-directive> -->
-        </div>
+        
     	<script src="js/app.js"></script>
     	<script src="js/controllers/MainController.js"></script>
         <script src="js/controllers/StatsController.js"></script>
@@ -35,5 +29,6 @@
         <script src="js/directives/borderOnHover.js"></script>
         <script src="js/controllers/NewCardController.js"></script>
         <script src="js/directives/newCard/NewCardForm.js"></script>
+        <script src="js/states.js"></script>
     </body>
 </html>
