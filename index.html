@@ -9,6 +9,11 @@
         <script src="angular-ui-router/release/angular-ui-router.js"></script>
     </head>
     <body ng-app="flashCards" ng-cloak>
+        <div id="menu">
+            <a ui-sref="statistics">Statistics</a>
+            <a ui-sref="newcardform">New Card</a>
+            <a ui-sref="viewcards">View Cards</a>
+        </div>
         <ui-view></ui-view>
         <!-- <div ng-include="'templates/statistics.html'"></div> -->
         <!-- <button ng-click="$state.go('statistics')">show stats panel</button> -->
