@@ -12,7 +12,7 @@ var publicPath = path.join(__dirname, '../public');
 var bowerPath = path.join(__dirname,'../bower_components');
 
 // The path of our index.html file. ([ROOT]/index.html)
-var indexHtmlPath = path.join(__dirname, '../index.html');
+var indexHtmlPath = path.join(__dirname, '../public/templates/index.html');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -32,6 +32,7 @@ app.use(express.static(bowerPath));
 
 // If we're hitting our home page, serve up our index.html file!
 app.get('/', function (req, res) {
+    console.log('redirected');
     res.sendFile(indexHtmlPath);
 });
 
@@ -76,4 +77,13 @@ app.put('/cards/:id',function(req,res){
         });
  });
 
-
+app.delete('/manageCard/:id/delete', function (req, res) {
+    // console.log('deleted, but not really');
+    FlashCardModel.remove({
+            _id: req.params.id
+        })
+        .then(function (deletedCard) {
+            console.log('Deleted card: ' + req.params.id);
+            res.send();
+        });
+});

@@ -8,6 +8,6 @@
         <span ng-show="card.answeredCorrectly">Yeah, you got it right!</span>
         <span ng-show="!card.answeredCorrectly">Nope, you got it wrong.</span>
     </h2>
-    <button ng-click="showEditForm=!showEditForm">Edit</button>
-    <form ng-show="showEditForm"></form>
+    <button ui-sref="manageCard({id: card._id})">Manage Card</button>
+    <ui-view></ui-view>
 </div>

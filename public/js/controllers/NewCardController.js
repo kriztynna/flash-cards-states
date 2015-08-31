@@ -27,4 +27,17 @@ app.controller("NewCardController", function($scope, FlashCardsFactory, $rootSco
 			}
 		});
 	};
+
+	$scope.update = function (){
+		var config = {
+			params: {id: $scope.existingCardId},
+		};
+		var data = $scope.newCard;
+		$http.put('/cards', data, config)
+		.then(function(updatedCard){
+			console.log(updatedCard);
+			FlashCardsFactory.getFlashCards();	
+		});
+	};
+
 });
