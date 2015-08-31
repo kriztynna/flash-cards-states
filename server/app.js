@@ -65,6 +65,7 @@ app.post('/cards', function(req, res){
 });
 
 app.put('/cards/:id',function(req,res){
+    console.log(req.params.id)
     FlashCardModel.findById(req.params.id)
         .then(function(foundCard){
             Object.keys(req.body).map(function(key){

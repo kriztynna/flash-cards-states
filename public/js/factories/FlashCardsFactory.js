@@ -9,6 +9,6 @@ app.factory('FlashCardsFactory', function ($http) {
         },
         newFlashCard: function (card) {
             return $http.post('/cards',card).then(function(response){return response.data;});
-        }
+        },
     };
 });

@@ -1,15 +1,17 @@
-<form name="newCardForm" ng-submit="newFlashCard(newCard)">
-    <input name="question" type='text' ng-model='newCard.question' required ng-minlength="15">
-    <span ng-show="newCardForm.question.$error.required && newCardForm.question.$dirty">Question is a required field.</span>
-    <span ng-show="newCardForm.question.$error.minlength">Question is too short.</span>
-    <select name="category" ng-model='newCard.category' required>
-        <option ng-repeat="cat in categories" value='{{ cat }}'>{{ cat }}</option>
-    </select>
-    <span ng-show="newCardForm.category.$error.required">Category is a required field.</span>
-    <span ng-repeat="n in [0, 1, 2]">
-    	<input name="answer{{n}}" type='text' ng-model='newCard.answers[n].text' ng-maxlength="40">
-    	<input name="correct{{n}}" type='checkbox' ng-model='newCard.answers[n].correct'/>
-    	<span ng-show="newCardForm.answer{{n}}.$error.maxlength">Answer is too long.</span>
-    </span>
-    <button type="submit" id="submit">Submit</button>
-</form>
+<div ng-controller="NewCardController">
+    <form name="newCardForm" ng-submit="newFlashCard(newCard)">
+        <input name="question" type='text' ng-model='newCard.question' required ng-minlength="15">
+        <span ng-show="newCardForm.question.$error.required && newCardForm.question.$dirty">Question is a required field.</span>
+        <span ng-show="newCardForm.question.$error.minlength">Question is too short.</span>
+        <select name="category" ng-model='newCard.category' required>
+            <option ng-repeat="cat in categories" value='{{ cat }}'>{{ cat }}</option>
+        </select>
+        <span ng-show="newCardForm.category.$error.required">Category is a required field.</span>
+        <span ng-repeat="n in [0, 1, 2]">
+        	<input name="answer{{n}}" type='text' ng-model='newCard.answers[n].text' ng-maxlength="40">
+        	<input name="correct{{n}}" type='checkbox' ng-model='newCard.answers[n].correct'/>
+        	<span ng-show="newCardForm.answer{{n}}.$error.maxlength">Answer is too long.</span>
+        </span>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</div>
