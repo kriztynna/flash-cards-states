@@ -1,0 +1,7 @@
+<div ng-controller="MainController">
+    <button class="category-button" ng-repeat="category in categories" ng-class="{active:category===currentCategory}" ng-click="getCategoryCards(category)">{{category}}</button>
+    <button class="category-button" ng-click="getCategoryCards()">Reset</button>
+    <loader ng-show="!ready"></loader>
+    <flash-card-directive card='flashCard' ng-repeat="flashCard in flashCards | orderBy : 'question'" border-on-hover>
+    </flash-card-directive>
+</div>
