@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flash Cards</title>
+        <!-- We've provided some styles for you, aren't we nice? -->
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/lib/angular.js"></script>
+    </head>
+    <body ng-app="flashCards" ng-cloak>
+        <div ng-include="'templates/statistics.html'"></div>
+        <new-card-form></new-card-form>
+        <div ng-controller="MainController">
+            <button class="category-button" ng-repeat="category in categories"  ng-class="{active:category===currentCategory}" ng-click="getCategoryCards(category)">{{category}}</button>
+            <button class="category-button" ng-click="getCategoryCards()">Reset</button>
+            <loader ng-show="!ready"></loader>
+            <flash-card-directive card = 'flashCard' ng-repeat="flashCard in flashCards | orderBy : 'question'" border-on-hover>
+            </flash-card-directive>
+        </div>
+    	<script src="js/app.js"></script>
+    	<script src="js/controllers/MainController.js"></script>
+        <script src="js/controllers/StatsController.js"></script>
+        <script src="js/factories/FlashCardsFactory.js"></script>
+        <script src="js/factories/ScoreFactory.js"></script>
+        <script src="js/directives/loader/loader.js"></script>
+        <script src="js/directives/flashCard/flashCardDirective.js"></script>
+        <script src="js/directives/borderOnHover.js"></script>
+        <script src="js/controllers/NewCardController.js"></script>
+        <script src="js/directives/newCard/NewCardForm.js"></script>
+    </body>
+</html>
